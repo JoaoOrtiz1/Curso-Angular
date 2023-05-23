@@ -1,0 +1,11 @@
+<div class="login-main">
+    <div class="login-container">
+        <form class="login-form">
+            <label for="usuario">Usuario</label>
+            <input [(ngModel)]="usuario.nome" type="text" id="usuario" name="nome">
+            <label for="pswd">Senha</label>
+            <input [(ngModel)]="usuario.senha" type="password" id="pswd" name="password">
+            <button type="submit" name="action" class="login-button" (click)="fazerLogin()">Logar</button>
+        </form>
+    </div>
+</div>

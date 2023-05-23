@@ -1,0 +1,15 @@
+<div class="form-main">
+    <div class="form-aluno">
+        <form class="form">
+            <label for="disabled">Id:</label>
+            <input disabled id="disabled" [(ngModel)]="aluno.id" type="text" name="id" (input)="onInput()">
+            <label for="name">Nome:</label>
+            <input id="name" [(ngModel)]="aluno.nome" type="text" name="nome" (input)="onInput()">
+            <label for="email">Email:</label>
+            <input id="email" [(ngModel)]="aluno.email" type="text" name="email" (input)="onInput()">
+        </form>
+    </div>
+    <div class="salvar">
+        <button (click)="voltarDetalhes(aluno.id)">Salvar</button>
+    </div>
+</div>

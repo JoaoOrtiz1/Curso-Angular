@@ -1,0 +1,54 @@
+<div class="card">
+  <h5 class="card-header">Cursos</h5>
+  <div class="card-left text-end">
+    <button type="button" class="btn btn-primary" [routerLink]="['novo']">Novo Curso</button>
+    <button type="button" class="btn btn-secundary" (click)="onRefresh()">Atualizar</button>
+  </div>
+  <div class="card-body ">
+    <h5 class="card-title">Special title treatment</h5>
+    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Cursos</th>
+        <td></td>
+      </tr>
+    </thead>
+    <tbody *ngIf="cursos$ | async as cursos else loading">
+      <tr *ngFor="let curso of cursos">
+        <th scope="row">{{curso.id}}</th>
+        <td>{{curso.nome}}</td>
+        <td>
+          <div class="card-left text-end">
+            <button type="button" class="btn btn-outline-warning" (click)="onEdit(curso.id)">Atualizar</button>
+
+            <button type="button" class="btn btn-outline-danger" (click)="onDelete(curso)">Remover</button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+    <ng-template #loading>
+      <ng-template #loadingNoError>
+        <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </ng-template>
+      <div class="error-message" *ngIf="error$ | async else loadingNoError">
+        
+        <div class="alert alert-danger" role="alert">
+          <span>Erro no carregamento try again</span>
+        </div>
+      </div>
+    </ng-template>
+  </table>
+</div>
+
+<ng-template #deleteModal>
+  <div class="modal-body text-center">
+    <p>Tem certeza que deseja remover esse curso?</p>
+    <button type="button" class="btn btn-default" (click)="onConfirmDelete()">Sim</button>
+    <button type="button" class="btn btn-primary" (click)="onDeclineDelete()">Nao</button>
+  </div>
+</ng-template>

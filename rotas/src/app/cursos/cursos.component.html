@@ -1,0 +1,11 @@
+<div class="cursos-cont">
+    <p>Pagina: {{pagina}}</p>
+    <p>Lista de cursos</p>
+        <div class="cursos-list">
+            <a class="cursosElement" *ngFor="let curso of cursos"
+            [routerLink]="['/curso', curso.id]">
+                {{curso.nome}}
+            </a>
+        </div>
+    <button (click)="proxPag()">Proxima Pagina</button>
+</div>

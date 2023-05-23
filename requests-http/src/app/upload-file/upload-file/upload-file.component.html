@@ -1,0 +1,14 @@
+<div class="input-group">
+    <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload" multiple (change)="onChanges($event)">
+    <button class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04" (click)="onUpload()" [disabled]="!files">Enviar</button>
+</div>
+<br>
+<div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+    <div class="progress-bar" [style.width]="progress +'%'">{{progress}}%</div>
+</div>
+<div>
+    <button class="btn btn-outline-primary" type="button" id="inputGroupFileAddon04" (click)="onDownloadExcel()">Excel</button>
+</div>
+<div>
+    <button class="btn btn-outline-primary" type="button" id="inputGroupFileAddon04" (click)="onDownloadPdf()">PDF</button>
+</div>

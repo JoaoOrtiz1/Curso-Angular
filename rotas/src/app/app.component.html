@@ -1,0 +1,21 @@
+<nav *ngIf="mostrarMenu">
+  <div class="main">
+      <a class="titulo" routerLink="">Rotas Ng2</a>
+     <div class="navBar">
+          <ul class="navOpt">
+              <li><a routerLink="/login" routerLinkActive="active">Login</a></li>
+              <li><a routerLink="/cursos" routerLinkActive="active" [queryParams]="{pagina: 1}">Cursos</a></li>
+              <!--li><a [routerLink]="['curso', idCurso.value]" routerLinkActive="active">Cursos com Id</a></li-->
+              <li><a routerLink="/alunos" routerLinkActive="active">Alunos</a></li>
+          </ul>
+     </div>
+  </div>
+</nav>
+
+
+<div class="container">
+  <!--p>Digite o Id do Curso: </p>
+  <input #idCurso-->
+  <router-outlet></router-outlet>
+</div>
+

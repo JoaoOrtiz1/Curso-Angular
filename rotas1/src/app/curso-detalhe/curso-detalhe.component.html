@@ -1,0 +1,37 @@
+<section class="section-cursos">
+    <div class="search-curso">
+        <h1>Digite o Id do curso: </h1>
+        <div class="input-search">
+            <input type="number" placeholder="Id:" #idBusca>
+            <button (click)="onSearch(idBusca.value)">Buscar</button>
+        </div>
+    </div>
+    
+    <div class="result-intro">
+        <h2>Resultados: {{notFound}}</h2>
+    </div>
+
+    <div class="center" *ngIf="cursoExists">
+        <div class="result-search">
+            <div class="title">
+                <h2>{{cursos[idBusca.value].titulo}}</h2>
+            </div>
+            <div class="curso-found">
+                <div class="info-curso">
+                    <img src="https://picsum.photos/200" alt="">
+                </div>
+                <div class="description">
+                    <h3>
+                        {{cursos[idBusca.value].description}}
+                    </h3>
+                    <p><b>Dificuldade:</b> {{cursos[idBusca.value].dificult}}</p>
+                    <p><b>Certificado:</b> {{cursos[idBusca.value].certificate}}</p>
+                </div>
+            </div>
+            <div class="start-curso">
+                <button><a [routerLink]="['id', idBusca.value]">Começar</a></button>
+            </div>
+        </div>
+    </div>
+    
+</section>

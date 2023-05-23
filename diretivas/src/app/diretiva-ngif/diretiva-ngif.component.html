@@ -1,0 +1,11 @@
+<h5>*ngIf</h5>
+
+<div *ngIf="!cursosMostrar">
+    Lista de cursos aki: 
+</div>
+
+<div *ngIf="cursos.length <= 0">
+    Lista de cursos vazia 
+</div>
+
+<button class="btn btn-primary"  (click)="modalCursos()">Mostrar ou esconder cursos</button>

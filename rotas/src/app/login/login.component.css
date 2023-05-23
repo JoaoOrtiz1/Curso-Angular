@@ -1,0 +1,31 @@
+.login-main{
+    margin: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 50%;
+}
+
+.login-form{
+    display: flex;
+    flex-direction: column;
+}
+
+.login-form input{
+    margin-bottom: 20px;
+    margin-top: 5px;
+    border: 0;
+    border-bottom: 1px solid rgb(186, 186, 186);
+    padding: 10px;
+}
+
+.login-button{
+    background-color: blue;
+    color: white;
+    padding: 10px;
+    border: 0;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.login-form button{
+    width: 15%;
+}

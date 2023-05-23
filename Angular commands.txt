@@ -1,0 +1,14 @@
+// Craindo projeto
+ng new nome_projeto
+ng serve // inicia server browser
+ng g c // gera um component
+tsc nome.js // passa o codigo typescript para javva puro
+ng g m .path/nome_module // gera um modulo
+ng g s .path/nome_service // gera um servico 
+[var] // para referenciar propriedades que receberao variaveis
+(click) // eventos do proprio angular
+<input type="text" (keyup)="onKeyUp($event)"> // $event serve para escutar o proprio evento que esta ocorrendo
+#inputCampo = $event.target // serve como <HTMLInputElement>
+ng build // cria a build do app
+ng g c d nome_diretiva // cria uma diretiva 
+

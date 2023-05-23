@@ -1,0 +1,15 @@
+<div class="alunos-main">
+    <div class="alunos-cont">
+        <p>Lista de Alunos</p>
+            <div class="alunos-list">
+                <a class="alunosElement" *ngFor="let aluno of alunos"
+                [routerLink]="[aluno.id]">
+                    {{aluno.nome}}
+                </a>
+            </div>
+    </div>
+    
+    <div class="alunos-render">
+        <router-outlet></router-outlet>
+    </div>
+</div>

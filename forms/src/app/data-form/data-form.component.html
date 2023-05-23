@@ -1,0 +1,112 @@
+<form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+  
+  <app-input-field
+  formControlName="nome"
+  [classeCss]="aplicaCssErro('nome')" 
+  id="nome" label="Nome" type="text" 
+  [control]="formulario.get('nome')"
+  ></app-input-field>
+
+  <!--
+  <label for="nome">Nome:</label>
+  <input type="text" id="nome" name="nome" formControlName="nome" [ngClass]="aplicaCssErro('nome')">
+  <app-error-msg [control]="formulario.get('nome')" label="Nome">
+  </app-error-msg>
+  <br><br>
+  -->
+
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email" formControlName="email" [ngClass]="aplicaCssErro('email')">
+  <app-error-msg [control]="formulario.get('email')" label="Email">
+  </app-error-msg><br><br>
+  <label for="Cemail">Confirmar Email:</label>
+  <input type="email" id="confirmarEmail" name="confirmarEmail" formControlName="confirmarEmail" [ngClass]="aplicaCssErro('confirmarEmail')">
+  <app-error-msg [control]="formulario.get('confirmarEmail')" label="Confirmar Email">
+  </app-error-msg><br><br>
+  <div formGroupName="endereco">
+    <label for="cep">CEP:</label>
+    <input type="text" id="cep" name="cep" formControlName="cep" [ngClass]="aplicaCssErro('cep')"
+      (blur)="consultaCEP()">
+    <app-error-msg [control]="formulario.get('endereco.cep')" label="Cep">
+    </app-error-msg><br><br>
+
+    <label for="numero">Número:</label>
+    <input type="text" id="numero" name="numero" formControlName="numero" [ngClass]="aplicaCssErro('numero')">
+    <app-error-msg [control]="formulario.get('endereco.numero')" label="Numero">
+    </app-error-msg><br><br>
+
+    <label for="complemento">Complemento:</label>
+    <input type="text" id="complemento" name="complemento" formControlName="complemento"
+      [ngClass]="aplicaCssErro('complemento')">
+    <br><br>
+
+    <label for="rua">Rua:</label>
+    <input type="text" id="rua" name="rua" formControlName="rua" [ngClass]="aplicaCssErro('rua')">
+    <app-error-msg [control]="formulario.get('endereco.rua')" label="Rua">
+    </app-error-msg><br><br>
+
+    <label for="bairro">Bairro:</label>
+    <input type="text" id="bairro" name="bairro" formControlName="bairro" [ngClass]="aplicaCssErro('bairro')">
+    <app-error-msg [control]="formulario.get('endereco.bairro')" label="Bairro">
+    </app-error-msg><br><br>
+
+    <label for="cidade">Cidade:</label>
+    <select id="cidade" name="cidade" formControlName="cidade" [ngClass]="aplicaCssErro('estado')" >
+      <option *ngFor="let cidade of cidades " [value]="cidade">{{cidade}}</option>
+    </select>
+    <app-error-msg [control]="formulario.get('endereco.cidade')" label="Cidade">
+    </app-error-msg><br><br>
+
+    <label for="estado">Estado:</label>
+    <select id="estado" name="estado" formControlName="estado" [ngClass]="aplicaCssErro('estado')">
+      <option *ngFor="let estado of estados" [value]="estado.sigla">{{estado.nome}}</option>
+    </select>
+    <app-error-msg [control]="formulario.get('endereco.estado')" label="Estado">
+    </app-error-msg><br><br>
+  </div>
+  <label for="cargo">Cargo:</label>
+  <select id="cargo" name="cargo" formControlName="cargo" [ngClass]="aplicaCssErro('cargo')"
+    [compareWith]="compararCargos">
+    <option *ngFor="let cargo of cargos" [value]="cargo.nivel">{{cargo.nivel}}</option>
+  </select>
+  <app-error-msg [control]="formulario.get('cargo')" label="Cargo">
+  </app-error-msg><br><br>
+  <label for="tech">Tecnologia:</label>
+  <select multiple id="tech" name="tech" formControlName="tech" [ngClass]="aplicaCssErro('tech')">
+    <option *ngFor="let tech of techs" [value]="tech.nome">{{tech.desc}}</option>
+  </select>
+  <app-error-msg [control]="formulario.get('tech')" label="Tech">
+  </app-error-msg><br><br>
+
+  
+  <label>NewsLetter</label>
+  <div class="newsLetter"  *ngFor="let opt of newsOpt" formGroupName="news" name="news">
+    <label [for]="opt.valor">{{opt.desc}}</label>
+    <input type="radio" [id]="opt.valor" [name]="opt.valor" [value]="opt.valor" > 
+  </div>
+
+
+  
+  <div class="termos"  formGroupName="termos">
+    <label for="termos">Aceito os termos</label>
+  <input type="checkbox" id="termos" name="termos">
+  <app-error-msg [control]="formulario.get('termos')" label="Termos">
+  </app-error-msg><br><br>
+  </div>
+
+
+  <div class="frame" formGroupName="frameworks">
+    <label for="frameworks">Frameworks</label>
+    <div class="frameworks" *ngFor="let frame of getFrameworksControls(); let i = index">
+      <input type="checkbox" [formControlName]="i">{{framework[i]}}
+    </div>
+  </div>
+
+
+
+  
+
+  <button type="submit" value="Enviar">Enviar</button>
+  <button (click)="resetar()">Cancelar</button>
+  <button (click)="setCargo()">Setar Cargo</button>
+</form>

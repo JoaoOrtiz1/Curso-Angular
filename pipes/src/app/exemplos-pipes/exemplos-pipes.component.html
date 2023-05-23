@@ -1,0 +1,16 @@
+<div>
+    <p>Titulo do livro: {{book.title   | uppercase | lowercase | camelCase}}</p> 
+    <p>Avaliacao: {{book.rating | number:'1.1-2'}}</p>
+    <p>Paginas: {{book.pages}}</p>
+    <p>Preco: {{book.price | currency:'BRL'}}</p>
+    <p>Url: {{book.url}}</p>
+    <p>Data de lancamento: {{book.release | date}}</p>
+</div>
+
+<h3>Maneira correta de usar filtros nos projetos</h3>
+
+<ul>
+    <li *ngFor="let livro of obterCursos()">{{ livro }}</li>
+</ul>
+
+<p>{{ valorAsync  | async}}</p>
